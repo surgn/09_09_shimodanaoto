@@ -29,3 +29,16 @@ function h($str)
 {
     return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
 }
+
+// SESSIONチェック＆リジェネレイト
+function chk_ssid()
+{
+    if (!isset($_SESSION['chk_ssid']) || $_SESSION['chk_ssid']!=session_id()) {
+        // ログイン失敗時の処理（ログイン画面に移動）
+        header('Location: login.php');
+    } else {
+        // ログイン成功時の処理（一覧画面に移動）
+        session_regenerate_id(true); // セッションidの再生成
+        $_SESSION['chk_ssid'] = session_id(); // セッション変数に格納
+    }
+}
