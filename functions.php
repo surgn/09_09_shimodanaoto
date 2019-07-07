@@ -43,7 +43,6 @@ function h($str)
     return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
 }
 
-
 // menuを決める
 function menu()
 {
@@ -65,4 +64,5 @@ function menu()
     // $menu = '<li class="nav-item"><a class="nav-link" href="index.php">todo登録</a></li><li class="nav-item"><a class="nav-link" href="select.php">todo一覧</a></li>';
     // $menu .= '<li class="nav-item"><a class="nav-link" href="logout.php">ログアウト</a></li>';
     // return $menu;
+
 }
