@@ -1,11 +1,22 @@
 <?php
+// セッションのスタート
+session_start();
+
+//0.外部ファイル読み込み
+include('functions.php');
+
+// ログイン状態のチェック
+chk_ssid();
+
+$menu = menu();
+
 // ①配列にデータを設定
 $company_data = ['data_kadai/ScMynavidata0_99.csv'=>'会社データNo.0～No.99',
              'data_kadai/ScMynavidata100_199.csv'=>'会社データNo.100～No.199',
              'data_kadai/ScMynavidata200_299.csv'=>'会社データNo.200～No.299'
             ];
 // ②配列のデータをoptionタグに整形
-foreach($company_data as $company_data_key => $company_data_val){
+foreach ($company_data as $company_data_key => $company_data_val) {
     $company_data .= "<option value='". $company_data_key;
     $company_data .= "'>". $company_data_val. "</option>";
 }
@@ -42,12 +53,13 @@ foreach($company_data as $company_data_key => $company_data_val){
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
+                    <?=$menu?>
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="select.php">データ一覧</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="scread.php">スクレイピング from マ〇ナビ2020</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </nav>
