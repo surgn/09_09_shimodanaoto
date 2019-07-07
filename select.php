@@ -1,6 +1,14 @@
 <?php
+// セッションのスタート
+session_start();
+
 // 関数ファイルの読み込み
 include('functions.php');
+
+// ログイン状態のチェック
+chk_ssid();
+
+$menu = menu();
 
 //1. DB接続
 $pdo = db_conn();
@@ -76,12 +84,13 @@ if ($status==false) {
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
+                    <?=$menu?>
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="index.php">企業登録</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="scread.php">スクレイピング from マ〇ナビ2020</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
 
